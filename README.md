@@ -1,8 +1,8 @@
 # ManoBrowser 🖐️
 
-**AI 的手，伸进你的浏览器。**
+**AI 在浏览器中的手 🤖🖐️**
 
-通过 Chrome 插件 + MCP 协议，让 AI agent 直接操控你已登录的真实浏览器——导航、点击、填表、截图、提取数据，一切都在你自己的浏览器里发生。
+让你的 AI 代理 / [OpenClaw](https://github.com/openclaw/openclaw) 通过 MCP 协议在本地操控你的真实浏览器，25+ 自动化工具，保留你的登录态，数据完全由你掌控。
 
 🌐 **中文** | [English](./README.en.md)
 
@@ -12,31 +12,87 @@
 
 ## 💡 为什么需要 ManoBrowser？
 
-市面上的取数工具要么需要你提供账号密码，要么在服务器端模拟登录，要么只能抓公开数据。
+市面上的浏览器自动化和数据提取工具，要么需要你提供账号密码，要么在服务器端模拟登录，要么只能抓公开数据。
 
 **ManoBrowser 不同**：
 
-| | 传统爬虫/取数工具 | ManoBrowser |
+| | 传统爬虫 / RPA / 取数工具 | ManoBrowser |
 |---|---|---|
 | **登录态** | 需要提供账号密码或 Cookie | ✅ 直接用你浏览器里已登录的会话 |
 | **数据范围** | 只能抓公开页面 | ✅ 能访问你登录后才能看到的一切 |
-| **运行环境** | 服务器端/无头浏览器 | ✅ 你自己的电脑、你自己的 Chrome |
+| **运行环境** | 服务器端 / 无头浏览器 | ✅ 你自己的电脑、你自己的 Chrome |
 | **隐私安全** | 数据经过第三方服务器 | ✅ 数据在本地处理，不经过任何第三方 |
-| **使用方式** | 写代码/配置规则 | ✅ 用自然语言告诉 AI 你要什么 |
+| **使用方式** | 写代码 / 配置规则 / 学习平台 | ✅ 用自然语言告诉 AI 你要什么 |
+| **AI 集成** | 需要额外对接 | ✅ 原生 MCP 协议，即插即用 |
 
 > **一句话总结：你的浏览器、你的登录态、你的数据、你的控制权。**
 
 ---
 
-## ✨ 五大能力
+## 📋 功能一览
 
-| 模块 | 说明 | 示例 |
+### 25+ MCP 工具，覆盖浏览器操作全链路
+
+| 类别 | 工具 | 说明 |
 |------|------|------|
-| 🖱️ **浏览器操作** | 导航、点击、输入、截图、Cookie 管理 | "帮我打开豆瓣，截个图" |
-| 📊 **数据提取** | 从当前页面提取结构化数据 | "把这个表格的数据整理成 JSON" |
-| 🔍 **平台探索** | 探索目标网站的数据结构和可采集内容 | "看看小红书个人主页有哪些数据" |
-| 🔧 **API 逆向** | 拦截页面请求，逆向分析 API | "分析这个页面的翻页接口" |
-| 🎬 **工作流录制** | 将操作录制为可复用的 JSON 工作流 | "把刚才的操作录成工作流" |
+| **导航** | `chrome_navigate` | 后台导航到目标 URL |
+| | `chrome_go_back_or_forward` | 前进 / 后退 |
+| | `chrome_close_tabs` | 关闭标签页 |
+| **交互** | `chrome_click_element` | 基于 UID 精准点击元素 |
+| | `chrome_fill_or_select` | 表单填充、下拉选择 |
+| | `chrome_keyboard` | 键盘输入、快捷键 |
+| | `chrome_scroll` / `chrome_scroll_into_view` | 页面滚动 |
+| | `chrome_input_upload_file` | 文件上传 |
+| **信息获取** | `chrome_screenshot` | 页面截图 |
+| | `chrome_accessibility_snapshot` | 获取页面元素树（含 UID） |
+| | `chrome_get_web_content` | 提取页面文本内容 |
+| | `chrome_get_document` | 获取页面 DOM |
+| | `chrome_console` | 读取控制台日志 |
+| **脚本执行** | `chrome_execute_script` | 在页面中执行 JavaScript |
+| | `chrome_inject_script` | 注入持久化脚本 |
+| **页面保护** | `chrome_page_protection_enable/disable` | 防止用户误操作干扰自动化流程 |
+| **网络** | `chrome_network_capture_start` | 捕获网络请求（API 逆向用） |
+
+### 五大能力模块
+
+| 模块 | 说明 |
+|------|------|
+| 🖱️ **浏览器自动化** | 完整的浏览器远程控制：导航、点击、填表、截图、Cookie/Storage 管理 |
+| 📊 **网页数据提取** | 从当前页面提取结构化数据，支持表格、列表、商品信息等任意格式 |
+| 🔍 **平台数据探索** | 探索目标网站的数据结构，发现可采集的数据源和 API 接口 |
+| 🔧 **API 逆向工程** | 拦截页面请求，分析 API 参数和签名，生成可复用的取数 Skill |
+| 🎬 **工作流录制** | 将浏览器操作录制为 JSON 工作流，支持回放、编辑和分享 |
+
+---
+
+## 🎯 应用场景与示例
+
+### 📱 社交平台数据采集
+> "帮我把小红书收藏的所有笔记导出来"
+> "抓取我抖音关注列表的所有账号"
+> "导出我的豆瓣观影记录和评分"
+
+配合 [Know Your Owner](https://github.com/ClawCap/ManoBrowser) Skill，可以自动从 5 个社交平台（抖音、小红书、微博、豆瓣、B站）生成精准的个人画像。
+
+### 🛒 电商与比价
+> "监控这个商品的价格变化"
+> "把购物车里的商品信息整理成表格"
+> "对比三个平台上同款商品的价格"
+
+### 📊 信息整理与研究
+> "把这个网页上的表格数据导出为 JSON"
+> "汇总这个论坛最近一周的热帖"
+> "抓取这个招聘网站上符合条件的职位"
+
+### 🔄 重复操作自动化
+> "每天帮我签到这三个网站"
+> "自动填写这个表单"
+> "把这个流程录下来，以后一键执行"
+
+### 🔧 开发者 / API 逆向
+> "分析这个页面的翻页接口参数"
+> "看看这个网站用了什么 API"
+> "把这个 API 封装成一个可复用的 Skill"
 
 ---
 
@@ -108,17 +164,20 @@ https://github.com/ClawCap/ManoBrowser/blob/main/SKILL.md
 
 **③ 验证**
 
-让 AI agent 执行：`chrome_navigate` 访问任意网页，成功即表示配置完成。
+让 AI agent 执行 `chrome_navigate` 访问任意网页，成功即表示配置完成。
 
 ---
 
 ## 🤔 适合谁用？
 
-### 有 OpenClaw / AI Agent 的用户
-这是**最佳体验**。Agent 可以直接通过 MCP 工具操控你的浏览器，就像多了一双手。配合 [Know Your Owner](https://github.com/ClawCap/ManoBrowser) Skill，还能自动从你的社交平台生成个人画像。
+### 🦞 OpenClaw / AI Agent 用户
+这是**最佳体验**。Agent 可以直接通过 MCP 工具操控你的浏览器，就像多了一双手——浏览器自动化、网页取数、社交平台数据采集、流程录制，全部用自然语言完成。
 
-### 开发者 / MCP 用户
-任何支持 MCP 协议的 AI 客户端都能接入。你可以基于 ManoBrowser 的能力构建自己的自动化工作流。
+### 💻 开发者 / MCP 用户
+任何支持 MCP 协议的 AI 客户端（Claude Code、Cursor、Windsurf 等）都能接入。你可以基于 ManoBrowser 的 25+ 工具构建自己的自动化工作流和数据管道。
+
+### 📱 普通用户
+不会写代码也没关系——通过 OpenClaw 龙虾，用自然语言就能完成浏览器自动化。"帮我导出豆瓣书单" 就是全部操作。
 
 ---
 
@@ -127,11 +186,11 @@ https://github.com/ClawCap/ManoBrowser/blob/main/SKILL.md
 ```
 ManoBrowser/
 ├── SKILL.md                        ← 主 Skill 文件（AI agent 读这个）
-├── browser-automation/             ← 🖱️ 浏览器操作
-├── web-data-extractor/             ← 📊 数据提取
-├── platform-data-explorer/         ← 🔍 平台探索
-├── api-skill-builder/              ← 🔧 API 逆向
-└── chrome-workflow-build/          ← 🎬 工作流录制
+├── browser-automation/             ← 🖱️ 浏览器自动化模块
+├── web-data-extractor/             ← 📊 网页数据提取模块
+├── platform-data-explorer/         ← 🔍 平台数据探索模块
+├── api-skill-builder/              ← 🔧 API 逆向工程模块
+└── chrome-workflow-build/          ← 🎬 工作流录制模块
     ├── assets/                     ← 模板文件
     ├── references/                 ← 参考文档
     └── scripts/                    ← 辅助脚本

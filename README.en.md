@@ -1,8 +1,10 @@
 # ManoBrowser 🖐️
 
-**AI's hand in your browser.**
+**AI's hand in your browser 🤖🖐️**
 
-Control your real, logged-in Chrome browser through a Chrome extension + MCP protocol — navigate, click, fill forms, take screenshots, extract data. Everything happens in your own browser.
+AI's hand in your browser. Automate any webpage via MCP. Your real browser, your login sessions, your data, your control.
+
+Let your AI agent / [OpenClaw](https://github.com/openclaw/openclaw) control your real Chrome browser locally via MCP protocol — 25+ automation tools, preserving your login sessions, with data fully under your control.
 
 🌐 [中文](./README.md) | **English**
 
@@ -12,31 +14,85 @@ Control your real, logged-in Chrome browser through a Chrome extension + MCP pro
 
 ## 💡 Why ManoBrowser?
 
-Most data extraction tools require you to hand over credentials, run headless browsers on remote servers, or only scrape public data.
+Most browser automation and data extraction tools require you to hand over credentials, run headless browsers on remote servers, or only scrape public data.
 
 **ManoBrowser is different**:
 
-| | Traditional Scrapers | ManoBrowser |
+| | Traditional Scrapers / RPA | ManoBrowser |
 |---|---|---|
 | **Auth** | Requires credentials or cookies | ✅ Uses your browser's existing login sessions |
 | **Data scope** | Public pages only | ✅ Anything you can see when logged in |
 | **Runs on** | Remote servers / headless browsers | ✅ Your own computer, your own Chrome |
 | **Privacy** | Data passes through third-party servers | ✅ Data stays local, no third parties |
-| **Interface** | Code / config rules | ✅ Natural language via AI agent |
+| **Interface** | Code / config rules / learn a platform | ✅ Natural language via AI agent |
+| **AI integration** | Requires extra setup | ✅ Native MCP protocol, plug and play |
 
 > **TL;DR: Your browser, your sessions, your data, your control.**
 
 ---
 
-## ✨ Five Core Capabilities
+## 📋 Feature Overview
 
-| Module | What it does | Example |
-|--------|-------------|---------|
-| 🖱️ **Browser Automation** | Navigate, click, type, screenshot, cookie management | "Open Douban and take a screenshot" |
-| 📊 **Data Extraction** | Extract structured data from the current page | "Turn this table into JSON" |
-| 🔍 **Platform Explorer** | Discover data structures and collectible content | "What data is available on this profile page?" |
-| 🔧 **API Reverse Engineering** | Intercept page requests, analyze APIs | "Analyze the pagination API on this page" |
-| 🎬 **Workflow Recording** | Record operations as reusable JSON workflows | "Save what I just did as a workflow" |
+### 25+ MCP Tools Covering the Full Browser Automation Pipeline
+
+| Category | Tool | Description |
+|----------|------|-------------|
+| **Navigation** | `chrome_navigate` | Navigate to a URL in background |
+| | `chrome_go_back_or_forward` | Go back / forward |
+| | `chrome_close_tabs` | Close tabs |
+| **Interaction** | `chrome_click_element` | Click elements by UID (most reliable) |
+| | `chrome_fill_or_select` | Form filling, dropdown selection |
+| | `chrome_keyboard` | Keyboard input, shortcuts |
+| | `chrome_scroll` / `chrome_scroll_into_view` | Page scrolling |
+| | `chrome_input_upload_file` | File upload |
+| **Information** | `chrome_screenshot` | Page screenshots |
+| | `chrome_accessibility_snapshot` | Get page element tree (with UIDs) |
+| | `chrome_get_web_content` | Extract page text content |
+| | `chrome_get_document` | Get page DOM |
+| | `chrome_console` | Read console logs |
+| **Scripts** | `chrome_execute_script` | Execute JavaScript in page |
+| | `chrome_inject_script` | Inject persistent scripts |
+| **Protection** | `chrome_page_protection_enable/disable` | Prevent user interference during automation |
+| **Network** | `chrome_network_capture_start` | Capture network requests (for API reverse engineering) |
+
+### Five Core Capability Modules
+
+| Module | Description |
+|--------|-------------|
+| 🖱️ **Browser Automation** | Full remote browser control: navigate, click, fill forms, screenshot, cookie/storage management |
+| 📊 **Web Data Extraction** | Extract structured data from any page — tables, lists, product info, any format |
+| 🔍 **Platform Data Explorer** | Discover data structures and collectible data sources on target websites |
+| 🔧 **API Reverse Engineering** | Intercept page requests, analyze API parameters and signatures, generate reusable data skills |
+| 🎬 **Workflow Recording** | Record browser operations as JSON workflows, supports replay, editing, and sharing |
+
+---
+
+## 🎯 Use Cases & Examples
+
+### 📱 Social Media Data Collection
+> "Export all my bookmarked posts from Xiaohongshu"
+> "Scrape my Douyin following list"
+> "Export my Douban movie ratings"
+
+### 🛒 E-commerce & Price Comparison
+> "Monitor price changes for this product"
+> "Organize my shopping cart items into a spreadsheet"
+> "Compare prices across three platforms"
+
+### 📊 Research & Information Gathering
+> "Export the table data from this webpage as JSON"
+> "Summarize the top posts from this forum this week"
+> "Scrape job listings matching my criteria"
+
+### 🔄 Repetitive Task Automation
+> "Check in on these three websites daily"
+> "Auto-fill this form"
+> "Record this workflow so I can replay it later"
+
+### 🔧 Developer / API Reverse Engineering
+> "Analyze the pagination API parameters on this page"
+> "What APIs does this website use?"
+> "Package this API into a reusable skill"
 
 ---
 
@@ -114,11 +170,14 @@ Ask your AI agent to call `chrome_navigate` to visit any webpage. If it works, y
 
 ## 🤔 Who is this for?
 
-### OpenClaw / AI Agent users
-The **best experience**. Your agent can directly control your browser via MCP tools — like giving it an extra pair of hands.
+### 🦞 OpenClaw / AI Agent Users
+The **best experience**. Your agent can control your browser directly via MCP tools — browser automation, web scraping, social media data collection, workflow recording — all with natural language.
 
-### Developers / MCP users
-Any MCP-compatible AI client can connect. Build your own automation workflows on top of ManoBrowser's capabilities.
+### 💻 Developers / MCP Users
+Any MCP-compatible AI client (Claude Code, Cursor, Windsurf, etc.) can connect. Build your own automation workflows and data pipelines on top of ManoBrowser's 25+ tools.
+
+### 📱 Non-technical Users
+No coding required — with OpenClaw, you can automate your browser using natural language. "Export my Douban book list" is all you need to say.
 
 ---
 
@@ -127,11 +186,11 @@ Any MCP-compatible AI client can connect. Build your own automation workflows on
 ```
 ManoBrowser/
 ├── SKILL.md                        ← Main skill file (AI agents read this)
-├── browser-automation/             ← 🖱️ Browser operations
-├── web-data-extractor/             ← 📊 Data extraction
-├── platform-data-explorer/         ← 🔍 Platform exploration
-├── api-skill-builder/              ← 🔧 API reverse engineering
-└── chrome-workflow-build/          ← 🎬 Workflow recording
+├── browser-automation/             ← 🖱️ Browser automation module
+├── web-data-extractor/             ← 📊 Web data extraction module
+├── platform-data-explorer/         ← 🔍 Platform data explorer module
+├── api-skill-builder/              ← 🔧 API reverse engineering module
+└── chrome-workflow-build/          ← 🎬 Workflow recording module
     ├── assets/                     ← Template files
     ├── references/                 ← Reference docs
     └── scripts/                    ← Helper scripts
