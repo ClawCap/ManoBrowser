@@ -29,73 +29,6 @@ Most browser automation and data extraction tools require you to hand over crede
 
 ---
 
-## 📋 Feature Overview
-
-### 25+ MCP Tools Covering the Full Browser Automation Pipeline
-
-| Category | Tool | Description |
-|----------|------|-------------|
-| **Navigation** | `chrome_navigate` | Navigate to a URL in background |
-| | `chrome_go_back_or_forward` | Go back / forward |
-| | `chrome_close_tabs` | Close tabs |
-| **Interaction** | `chrome_click_element` | Click elements by UID (most reliable) |
-| | `chrome_fill_or_select` | Form filling, dropdown selection |
-| | `chrome_keyboard` | Keyboard input, shortcuts |
-| | `chrome_scroll` / `chrome_scroll_into_view` | Page scrolling |
-| | `chrome_input_upload_file` | File upload |
-| **Information** | `chrome_screenshot` | Page screenshots |
-| | `chrome_accessibility_snapshot` | Get page element tree (with UIDs) |
-| | `chrome_get_web_content` | Extract page text content |
-| | `chrome_get_document` | Get page DOM |
-| | `chrome_console` | Read console logs |
-| **Scripts** | `chrome_execute_script` | Execute JavaScript in page |
-| | `chrome_inject_script` | Inject persistent scripts |
-| **Protection** | `chrome_page_protection_enable/disable` | Prevent user interference during automation |
-| **Network** | `chrome_network_capture_start` | Capture network requests (for API reverse engineering) |
-
-### Five Core Capability Modules
-
-| Module | Description |
-|--------|-------------|
-| 🖱️ **Browser Automation** | Full remote browser control: navigate, click, fill forms, screenshot, cookie/storage management |
-| 📊 **Web Data Extraction** | Extract structured data from any page — tables, lists, product info, any format |
-| 🔍 **Platform Data Explorer** | Discover data structures and collectible data sources on target websites |
-| 🔧 **API Reverse Engineering** | Intercept page requests, analyze API parameters and signatures, generate reusable data skills |
-| 🎬 **Workflow Recording** | Record browser operations as JSON workflows, supports replay, editing, and sharing |
-
----
-
-## 🎯 Use Cases & Examples
-
-### 📱 Social Media Data Collection
-> "Export all my bookmarked posts from Xiaohongshu"
-> "Search for trending posts about 'camping gear' on Xiaohongshu"
-> "Scrape all comments from this viral Douyin video"
-> "Export my Douban movie ratings"
-> "List all videos in my Bilibili favorites"
-
-### 🛒 E-commerce & Price Comparison
-> "Monitor price changes for this product"
-> "Organize my shopping cart items into a spreadsheet"
-> "Compare prices across three platforms"
-
-### 📊 Research & Information Gathering
-> "Export the table data from this webpage as JSON"
-> "Summarize the top posts from this forum this week"
-> "Scrape job listings matching my criteria"
-
-### 🔄 Repetitive Task Automation
-> "Check in on these three websites daily"
-> "Auto-fill this form"
-> "Record this workflow so I can replay it later"
-
-### 🔧 Developer / API Reverse Engineering
-> "Analyze the pagination API parameters on this page"
-> "What APIs does this website use?"
-> "Package this API into a reusable skill"
-
----
-
 ## 🚀 Quick Start
 
 ### Option 1: Let your AI agent set it up (Recommended 🦞)
@@ -177,6 +110,73 @@ Click the extension icon, copy your API key, then add this to your AI client con
 **④ Verify**
 
 Ask your AI agent to call `chrome_navigate` to visit any webpage. If it works, you're all set.
+
+---
+
+## 📋 Feature Overview
+
+### 25+ MCP Tools Covering the Full Browser Automation Pipeline
+
+| Category | Tool | Description |
+|----------|------|-------------|
+| **Navigation** | `chrome_navigate` | Navigate to a URL in background |
+| | `chrome_go_back_or_forward` | Go back / forward |
+| | `chrome_close_tabs` | Close tabs |
+| **Interaction** | `chrome_click_element` | Click elements by UID (most reliable) |
+| | `chrome_fill_or_select` | Form filling, dropdown selection |
+| | `chrome_keyboard` | Keyboard input, shortcuts |
+| | `chrome_scroll` / `chrome_scroll_into_view` | Page scrolling |
+| | `chrome_input_upload_file` | File upload |
+| **Information** | `chrome_screenshot` | Page screenshots |
+| | `chrome_accessibility_snapshot` | Get page element tree (with UIDs) |
+| | `chrome_get_web_content` | Extract page text content |
+| | `chrome_get_document` | Get page DOM |
+| | `chrome_console` | Read console logs |
+| **Scripts** | `chrome_execute_script` | Execute JavaScript in page |
+| | `chrome_inject_script` | Inject persistent scripts |
+| **Protection** | `chrome_page_protection_enable/disable` | Prevent user interference during automation |
+| **Network** | `chrome_network_capture_start` | Capture network requests (for API reverse engineering) |
+
+### Five Core Capability Modules
+
+| Module | Description |
+|--------|-------------|
+| 🖱️ **Browser Automation** | Full remote browser control: navigate, click, fill forms, screenshot, cookie/storage management |
+| 📊 **Web Data Extraction** | Extract structured data from any page — tables, lists, product info, any format |
+| 🔍 **Platform Data Explorer** | Discover data structures and collectible data sources on target websites |
+| 🔧 **API Reverse Engineering** | Intercept page requests, analyze API parameters and signatures, generate reusable data skills |
+| 🎬 **Workflow Recording** | Record browser operations as JSON workflows, supports replay, editing, and sharing |
+
+---
+
+## 🎯 Use Cases & Examples
+
+### 📱 Social Media Data Collection
+> "Export all my bookmarked posts from Xiaohongshu"
+> "Search for trending posts about 'camping gear' on Xiaohongshu"
+> "Scrape all comments from this viral Douyin video"
+> "Export my Douban movie ratings"
+> "List all videos in my Bilibili favorites"
+
+### 🛒 E-commerce & Price Comparison
+> "Monitor price changes for this product"
+> "Organize my shopping cart items into a spreadsheet"
+> "Compare prices across three platforms"
+
+### 📊 Research & Information Gathering
+> "Export the table data from this webpage as JSON"
+> "Summarize the top posts from this forum this week"
+> "Scrape job listings matching my criteria"
+
+### 🔄 Repetitive Task Automation
+> "Check in on these three websites daily"
+> "Auto-fill this form"
+> "Record this workflow so I can replay it later"
+
+### 🔧 Developer / API Reverse Engineering
+> "Analyze the pagination API parameters on this page"
+> "What APIs does this website use?"
+> "Package this API into a reusable skill"
 
 ---
 
