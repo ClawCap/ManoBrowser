@@ -111,9 +111,19 @@ https://github.com/ClawCap/ManoBrowser
 
 > ⚠️ 龙虾需要下载**整个仓库**，不是只看主 SKILL.md。Chrome 插件只是浏览器和 AI 之间的连接层，真正的自动化能力（数据提取、平台探索、API 逆向、工作流录制）都在 Skill 的子模块文件里。
 
-### 方式二：手动安装（3 分钟）
+### 方式二：手动安装（5 分钟）
 
-**① 安装 Chrome 插件**
+**① 下载 Skill 包**
+
+```bash
+git clone https://github.com/ClawCap/ManoBrowser.git
+```
+
+将整个 `ManoBrowser/` 目录放到你的 AI 客户端的 skills 目录下（如 OpenClaw 的 `~/.openclaw/skills/manobrowser/`）。
+
+> ⚠️ 必须下载整个仓库。Chrome 插件只是连接层，真正的自动化能力（数据提取、平台探索、API 逆向、工作流录制）都在 Skill 的子模块文件里。
+
+**② 安装 Chrome 插件**
 
 📦 [下载 ManoBrowser 插件](https://deepmining.oss-cn-beijing.aliyuncs.com/web/static/ds-extension/ManoBrowser.zip)
 
@@ -123,7 +133,7 @@ https://github.com/ClawCap/ManoBrowser
 4. 点击「加载已解压的扩展程序」→ 选择解压后的文件夹
 5. 确认工具栏出现 ManoBrowser 图标 ✅
 
-**② 配置 MCP 连接**
+**③ 配置 MCP 连接**
 
 点击插件图标，复制 API 密钥，在你的 AI 客户端中添加配置：
 
@@ -164,7 +174,7 @@ https://github.com/ClawCap/ManoBrowser
 
 > ⚠️ 这是**云端 HTTP MCP 服务**，不是 localhost / 本地端口 / WebSocket。
 
-**③ 验证**
+**④ 验证**
 
 让 AI agent 执行 `chrome_navigate` 访问任意网页，成功即表示配置完成。
 

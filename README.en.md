@@ -4,8 +4,6 @@
 
 AI's hand in your browser. Automate any webpage via MCP. Your real browser, your login sessions, your data, your control.
 
-Let your AI agent / [OpenClaw](https://github.com/openclaw/openclaw) control your real Chrome browser locally via MCP protocol — 25+ automation tools, preserving your login sessions, with data fully under your control.
-
 🌐 [中文](./README.md) | **English**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub stars](https://img.shields.io/github/stars/ClawCap/ManoBrowser.svg)](https://github.com/ClawCap/ManoBrowser)
@@ -113,9 +111,19 @@ Your agent will automatically: download the full skill pack (including all sub-m
 
 > ⚠️ The agent needs to download the **entire repository**, not just the main SKILL.md. The Chrome extension is just the connection layer between browser and AI — the real automation capabilities (data extraction, platform exploration, API reverse engineering, workflow recording) are in the skill's sub-module files.
 
-### Option 2: Manual installation (3 minutes)
+### Option 2: Manual installation (5 minutes)
 
-**① Install the Chrome Extension**
+**① Download the Skill Pack**
+
+```bash
+git clone https://github.com/ClawCap/ManoBrowser.git
+```
+
+Place the entire `ManoBrowser/` directory in your AI client's skills directory (e.g. OpenClaw's `~/.openclaw/skills/manobrowser/`).
+
+> ⚠️ You must download the entire repository. The Chrome extension is just the connection layer — the real automation capabilities (data extraction, platform exploration, API reverse engineering, workflow recording) are in the skill's sub-module files.
+
+**② Install the Chrome Extension**
 
 📦 [Download ManoBrowser Extension](https://deepmining.oss-cn-beijing.aliyuncs.com/web/static/ds-extension/ManoBrowser.zip)
 
@@ -125,7 +133,7 @@ Your agent will automatically: download the full skill pack (including all sub-m
 4. Click "Load unpacked" → select the unzipped folder
 5. Confirm the ManoBrowser icon appears in your toolbar ✅
 
-**② Configure MCP Connection**
+**③ Configure MCP Connection**
 
 Click the extension icon, copy your API key, then add this to your AI client config:
 
@@ -166,7 +174,7 @@ Click the extension icon, copy your API key, then add this to your AI client con
 
 > ⚠️ This is a **cloud HTTP MCP service**, not localhost / local port / WebSocket.
 
-**③ Verify**
+**④ Verify**
 
 Ask your AI agent to call `chrome_navigate` to visit any webpage. If it works, you're all set.
 
