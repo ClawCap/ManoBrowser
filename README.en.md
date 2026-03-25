@@ -71,8 +71,10 @@ Most browser automation and data extraction tools require you to hand over crede
 
 ### 📱 Social Media Data Collection
 > "Export all my bookmarked posts from Xiaohongshu"
-> "Scrape my Douyin following list"
+> "Search for trending posts about 'camping gear' on Xiaohongshu"
+> "Scrape all comments from this viral Douyin video"
 > "Export my Douban movie ratings"
+> "List all videos in my Bilibili favorites"
 
 ### 🛒 E-commerce & Price Comparison
 > "Monitor price changes for this product"
@@ -103,11 +105,13 @@ Most browser automation and data extraction tools require you to hand over crede
 If you're using [OpenClaw](https://github.com/openclaw/openclaw), just send this to your agent:
 
 ```text
-Please install ManoBrowser following this SKILL.md:
-https://github.com/ClawCap/ManoBrowser/blob/main/SKILL.md
+Please install the ManoBrowser Skill by downloading the entire project to your skills directory:
+https://github.com/ClawCap/ManoBrowser
 ```
 
-Your agent will guide you through the entire setup — no technical knowledge needed.
+Your agent will automatically: download the full skill pack (including all sub-modules) → guide you through Chrome extension installation → configure MCP connection. No technical knowledge needed.
+
+> ⚠️ The agent needs to download the **entire repository**, not just the main SKILL.md. The Chrome extension is just the connection layer between browser and AI — the real automation capabilities (data extraction, platform exploration, API reverse engineering, workflow recording) are in the skill's sub-module files.
 
 ### Option 2: Manual installation (3 minutes)
 

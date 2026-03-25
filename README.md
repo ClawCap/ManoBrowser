@@ -69,10 +69,10 @@
 
 ### 📱 社交平台数据采集
 > "帮我把小红书收藏的所有笔记导出来"
-> "抓取我抖音关注列表的所有账号"
+> "搜索小红书上'露营装备'相关的热门笔记"
+> "抓取这条抖音热门视频下的所有评论"
 > "导出我的豆瓣观影记录和评分"
-
-配合 [Know Your Owner](https://github.com/ClawCap/ManoBrowser) Skill，可以自动从 5 个社交平台（抖音、小红书、微博、豆瓣、B站）生成精准的个人画像。
+> "把我B站收藏夹里的视频列表整理出来"
 
 ### 🛒 电商与比价
 > "监控这个商品的价格变化"
@@ -103,11 +103,13 @@
 如果你正在使用 [OpenClaw](https://github.com/openclaw/openclaw)，直接把下面这句话发给你的龙虾：
 
 ```text
-请按照这个 SKILL.md 帮我安装 ManoBrowser：
-https://github.com/ClawCap/ManoBrowser/blob/main/SKILL.md
+请帮我安装 ManoBrowser Skill，从这个 GitHub 仓库下载整个项目到你的 skills 目录：
+https://github.com/ClawCap/ManoBrowser
 ```
 
-龙虾会自动引导你完成插件安装、MCP 配置，全程不需要你懂任何技术。
+龙虾会自动完成：下载整个 Skill 包（含所有子模块）→ 引导你安装 Chrome 插件 → 配置 MCP 连接。全程不需要你懂任何技术。
+
+> ⚠️ 龙虾需要下载**整个仓库**，不是只看主 SKILL.md。Chrome 插件只是浏览器和 AI 之间的连接层，真正的自动化能力（数据提取、平台探索、API 逆向、工作流录制）都在 Skill 的子模块文件里。
 
 ### 方式二：手动安装（3 分钟）
 
