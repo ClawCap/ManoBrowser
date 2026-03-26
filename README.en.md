@@ -2,7 +2,7 @@
 
 **AI's hand in your browser 🤖🖐️**
 
-AI's hand in your browser. Automate any webpage via MCP. Your real browser, your login sessions, your data, your control.
+Let your AI assistant use the browser just like you do — visit pages, extract data, complete tasks. 25+ automation tools, all running in your own Chrome. Your real browser, your login sessions, your data, your control.
 
 🌐 [中文](./README.md) | **English**
 
@@ -23,7 +23,7 @@ Most browser automation and data extraction tools require you to hand over crede
 | **Runs on** | Remote servers / headless browsers | ✅ Your own computer, your own Chrome |
 | **Privacy** | Data passes through third-party servers | ✅ Data stays local, no third parties |
 | **Interface** | Code / config rules / learn a platform | ✅ Natural language via AI agent |
-| **AI integration** | Requires extra setup | ✅ Native MCP protocol, plug and play |
+| **AI integration** | Requires extra setup | ✅ Works with major AI clients out of the box |
 
 > **TL;DR: Your browser, your sessions, your data, your control.**
 
@@ -40,7 +40,7 @@ Please install the ManoBrowser Skill by downloading the entire project to your s
 https://github.com/ClawCap/ManoBrowser
 ```
 
-Your agent will automatically: download the full skill pack (including all sub-modules) → guide you through Chrome extension installation → configure MCP connection. No technical knowledge needed.
+Your agent will automatically: download the full skill pack (including all sub-modules) → guide you through Chrome extension installation → configure connection. No technical knowledge needed.
 
 > ⚠️ The agent needs to download the **entire repository**, not just the main SKILL.md. The Chrome extension is just the connection layer between browser and AI — the real automation capabilities (data extraction, platform exploration, API reverse engineering, workflow recording) are in the skill's sub-module files.
 
@@ -58,7 +58,7 @@ Place the entire `ManoBrowser/` directory in your AI client's skills directory (
 
 **② Install Extension & Configure Connection**
 
-Have your AI agent read `SKILL.md` — it will guide you through Chrome extension installation and MCP connection setup automatically.
+Have your AI agent read `SKILL.md` — it will guide you through Chrome extension installation and connection setup automatically.
 
 > All setup steps are in the "Prerequisites" section of SKILL.md, including extension download link, configuration methods, and troubleshooting.
 
@@ -66,7 +66,7 @@ Have your AI agent read `SKILL.md` — it will guide you through Chrome extensio
 
 ## 📋 Feature Overview
 
-### 25+ MCP Tools Covering the Full Browser Automation Pipeline
+### 25+ Tools Covering the Full Browser Automation Pipeline
 
 | Category | Tool | Description |
 |----------|------|-------------|
@@ -134,10 +134,10 @@ Have your AI agent read `SKILL.md` — it will guide you through Chrome extensio
 ## 🤔 Who is this for?
 
 ### 🦞 OpenClaw / AI Agent Users
-The **best experience**. Your agent can control your browser directly via MCP tools — browser automation, web scraping, social media data collection, workflow recording — all with natural language.
+The **best experience**. Your agent uses the browser just like you would — browser automation, web scraping, social media data collection, workflow recording — all with natural language.
 
-### 💻 Developers / MCP Users
-Any MCP-compatible AI client (Claude Code, Cursor, Windsurf, etc.) can connect. Build your own automation workflows and data pipelines on top of ManoBrowser's 25+ tools.
+### 💻 Developers
+Major AI clients (Claude Code, Cursor, Windsurf, etc.) can connect. Build your own automation workflows and data pipelines on top of ManoBrowser's 25+ tools.
 
 ### 📱 Non-technical Users
 No coding required — with OpenClaw, you can automate your browser using natural language. "Export my Douban book list" is all you need to say.
@@ -163,7 +163,7 @@ ManoBrowser/
 
 ## 🔐 Privacy & Security
 
-- **No third-party data routing**: The extension runs directly in your browser; extracted data goes to your local AI agent via MCP
+- **No third-party data routing**: The extension runs directly in your browser; extracted data goes straight to your local AI assistant
 - **Your sessions stay private**: The extension never uploads your cookies or passwords
 - **Fully controllable**: Disable the extension, close your browser, or revoke your API key anytime
 - **Open source & auditable**: All skill code is public — inspect every line
