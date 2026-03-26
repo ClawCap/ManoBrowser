@@ -56,60 +56,11 @@ Place the entire `ManoBrowser/` directory in your AI client's skills directory (
 
 > ⚠️ You must download the entire repository. The Chrome extension is just the connection layer — the real automation capabilities (data extraction, platform exploration, API reverse engineering, workflow recording) are in the skill's sub-module files.
 
-**② Install the Chrome Extension**
+**② Install Extension & Configure Connection**
 
-📦 [Download ManoBrowser Extension](https://deepmining.oss-cn-beijing.aliyuncs.com/web/static/ds-extension/ManoBrowser.zip)
+Have your AI agent read `SKILL.md` — it will guide you through Chrome extension installation and MCP connection setup automatically.
 
-1. Unzip the downloaded file
-2. Open `chrome://extensions` in Chrome
-3. Enable "Developer mode" (top right)
-4. Click "Load unpacked" → select the unzipped folder
-5. Confirm the ManoBrowser icon appears in your toolbar ✅
-
-**③ Configure MCP Connection**
-
-Click the extension icon, copy your API key, then add this to your AI client config:
-
-<details>
-<summary><b>Claude Code / OpenClaw (.mcp.json)</b></summary>
-
-```json
-{
-  "mcpServers": {
-    "browser": {
-      "type": "http",
-      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
-      "headers": {
-        "Authorization": "Bearer <your-api-key>"
-      }
-    }
-  }
-}
-```
-</details>
-
-<details>
-<summary><b>mcporter (config/mcporter.json)</b></summary>
-
-```json
-{
-  "mcpServers": {
-    "browser": {
-      "baseUrl": "https://datasaver.deepminingai.com/api/v2/mcp",
-      "headers": {
-        "Authorization": "Bearer <your-api-key>"
-      }
-    }
-  }
-}
-```
-</details>
-
-> ⚠️ This is a **cloud HTTP MCP service**, not localhost / local port / WebSocket.
-
-**④ Verify**
-
-Ask your AI agent to call `chrome_navigate` to visit any webpage. If it works, you're all set.
+> All setup steps are in the "Prerequisites" section of SKILL.md, including extension download link, configuration methods, and troubleshooting.
 
 ---
 

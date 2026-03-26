@@ -1,0 +1,34 @@
+{
+  "name": "@clawcap/manobrowser",
+  "version": "2.1.4",
+  "description": "AI's hand in your browser. Automate any webpage via MCP. Your real browser, your login sessions, your data, your control.",
+  "keywords": [
+    "openclaw",
+    "agentskill",
+    "mcp",
+    "browser-automation",
+    "web-scraping",
+    "data-extraction",
+    "chrome-extension",
+    "ai-agent",
+    "manobrowser"
+  ],
+  "homepage": "https://github.com/ClawCap/ManoBrowser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ClawCap/ManoBrowser.git"
+  },
+  "license": "MIT",
+  "author": "ClawCap",
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "browser-automation/",
+    "web-data-extractor/",
+    "platform-data-explorer/",
+    "api-skill-builder/",
+    "chrome-workflow-build/"
+  ]
+}

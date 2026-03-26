@@ -56,60 +56,11 @@ git clone https://github.com/ClawCap/ManoBrowser.git
 
 > ⚠️ 必须下载整个仓库。Chrome 插件只是连接层，真正的自动化能力（数据提取、平台探索、API 逆向、工作流录制）都在 Skill 的子模块文件里。
 
-**② 安装 Chrome 插件**
+**② 安装插件 & 配置连接**
 
-📦 [下载 ManoBrowser 插件](https://deepmining.oss-cn-beijing.aliyuncs.com/web/static/ds-extension/ManoBrowser.zip)
+让你的 AI agent 读取 `SKILL.md`，它会自动引导你完成 Chrome 插件安装和 MCP 连接配置。
 
-1. 解压 zip 文件
-2. Chrome 打开 `chrome://extensions`
-3. 开启右上角「开发者模式」
-4. 点击「加载已解压的扩展程序」→ 选择解压后的文件夹
-5. 确认工具栏出现 ManoBrowser 图标 ✅
-
-**③ 配置 MCP 连接**
-
-点击插件图标，复制 API 密钥，在你的 AI 客户端中添加配置：
-
-<details>
-<summary><b>Claude Code / OpenClaw（.mcp.json）</b></summary>
-
-```json
-{
-  "mcpServers": {
-    "browser": {
-      "type": "http",
-      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
-      "headers": {
-        "Authorization": "Bearer <你的API密钥>"
-      }
-    }
-  }
-}
-```
-</details>
-
-<details>
-<summary><b>mcporter（config/mcporter.json）</b></summary>
-
-```json
-{
-  "mcpServers": {
-    "browser": {
-      "baseUrl": "https://datasaver.deepminingai.com/api/v2/mcp",
-      "headers": {
-        "Authorization": "Bearer <你的API密钥>"
-      }
-    }
-  }
-}
-```
-</details>
-
-> ⚠️ 这是**云端 HTTP MCP 服务**，不是 localhost / 本地端口 / WebSocket。
-
-**④ 验证**
-
-让 AI agent 执行 `chrome_navigate` 访问任意网页，成功即表示配置完成。
+> 所有配置步骤都在 SKILL.md 的「前置条件」章节中，包含插件下载链接、配置方法和常见问题排查。
 
 ---
 
