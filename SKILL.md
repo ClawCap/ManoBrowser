@@ -1,8 +1,8 @@
 ---
 name: manobrowser
-description: 打通用户本地浏览器，提供远程控制、数据提取、API逆向、工作流生成能力。通过 MCP 服务器连接本地 Chrome 插件，实现：1.远程浏览器操作（导航、点击、填表、截图、数据提取）2.从当前页面提取结构化数据 3.平台探索与 Skill 发现 4.API 逆向生成取数 Skill 5.将浏览器操作录制为可复用 Skill。
+description: Your hands in the browser. 25+ tools to navigate, click, extract data, execute scripts, intercept network requests, and record workflows — all in the user's own Chrome with their existing login sessions. Use when you need web data extraction, browser automation, API reverse engineering, or social media data collection. 给你一双手，像用户一样使用浏览器。25+工具覆盖导航、点击、数据提取、脚本执行、网络请求拦截、工作流录制，数据完全本地处理。
 metadata:
-  version: 2.1.4
+  version: 2.2.0
 ---
 
 # ManoBrowser
@@ -59,21 +59,28 @@ metadata:
 
 根据使用的 AI 客户端选择对应的配置方式：
 
-**mcporter**（`config/mcporter.json`）：
-```json
-{
-  "mcpServers": {
-    "{chrome-instance}": {
-      "baseUrl": "https://datasaver.deepminingai.com/api/v2/mcp",
-      "headers": {
-        "Authorization": "Bearer {api-key}"
-      }
-    }
-  }
-}
+**方式一：mcporter CLI（推荐）**
+
+```bash
+# 安装 mcporter（任选其一）
+npx mcporter --version          # 免安装直接用
+npm install -g mcporter          # 全局安装
+brew install steipete/tap/mcporter  # macOS Homebrew
+
+# 添加 ManoBrowser 服务
+mcporter config add {chrome-instance} https://datasaver.deepminingai.com/api/v2/mcp
+
+# 验证连接是否成功
+mcporter list {chrome-instance} --schema
 ```
 
-**Claude Code / 其他 MCP 客户端**（`.mcp.json`）：
+Headers 通过环境变量注入，在 mcporter 配置中自动生效：
+```bash
+export MANOBROWSER_KEY="{api-key}"
+```
+
+**方式二：手动配置**（`.mcp.json` / Claude Desktop 等）
+
 ```json
 {
   "mcpServers": {
@@ -99,15 +106,24 @@ metadata:
 
 一个 `api-key` 对应一台设备上的一个 Chrome 浏览器。需要同时操控多台设备时，添加多个实例即可：
 
+**mcporter CLI：**
+```bash
+mcporter config add browser https://datasaver.deepminingai.com/api/v2/mcp
+mcporter config add browser-work https://datasaver.deepminingai.com/api/v2/mcp
+```
+
+**手动配置：**
 ```json
 {
   "mcpServers": {
     "browser": {
-      "baseUrl": "https://datasaver.deepminingai.com/api/v2/mcp",
+      "type": "http",
+      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
       "headers": { "Authorization": "Bearer key-设备A" }
     },
     "browser-work": {
-      "baseUrl": "https://datasaver.deepminingai.com/api/v2/mcp",
+      "type": "http",
+      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
       "headers": { "Authorization": "Bearer key-设备B" }
     }
   }
