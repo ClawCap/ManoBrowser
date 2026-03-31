@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "\U0001F4AC 社区讨论 / Community Discussions"
+    url: https://github.com/ClawCap/ManoBrowser/discussions
+    about: "使用体验分享、提问交流，欢迎来 Discussions 聊聊"

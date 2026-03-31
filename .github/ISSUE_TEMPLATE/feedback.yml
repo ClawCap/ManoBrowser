@@ -1,0 +1,50 @@
+name: "\U0001F4AC 反馈 / Feedback"
+description: "Bug 报告、问题反馈、功能建议 — 都可以在这里提交"
+title: "[Feedback] "
+labels: ["feedback"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: 反馈类型 / Type
+      options:
+        - 🐛 Bug / 问题报告
+        - 💡 功能建议 / Feature Request
+        - 💬 使用体验 / Usage Feedback
+        - ❓ 使用疑问 / Question
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 描述 / Description
+      description: 请尽量详细描述你遇到的问题或建议（中英文均可）
+      placeholder: |
+        例如：
+        - 我在使用 XX 功能时遇到了...
+        - 希望增加 XX 功能...
+        - 在 XX 平台上操作时报错...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息 / Environment (可选)
+      description: 如果是 Bug，请提供以下信息帮助排查
+      placeholder: |
+        - 操作系统：macOS / Windows / Linux
+        - 浏览器：Chrome 版本
+        - OpenClaw 版本：
+        - ManoBrowser 版本：
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图或日志 / Screenshots & Logs (可选)
+      description: 如有报错截图或日志，请粘贴在这里
+    validations:
+      required: false
