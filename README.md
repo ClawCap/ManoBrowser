@@ -158,13 +158,18 @@ ManoBrowser/
 
 ---
 
-## 💬 反馈与支持
+## 💬 反馈与社区
 
-使用中遇到问题？有想要的新功能？欢迎提交 Issue，我们会认真查看每一条反馈：
+### 加入 ClawCap 开源社区
 
-👉 [**提交反馈 / 报告问题**](https://github.com/ClawCap/ManoBrowser/issues/new/choose)
+扫码加入飞书群，和开发者直接交流、反馈问题、获取最新动态：
 
-你也可以在 [Discussions](https://github.com/ClawCap/ManoBrowser/discussions) 中分享使用体验或提问交流。
+<img src="docs/img/feishu_qr.png" alt="ClawCap 开源社区飞书群" width="250" />
+
+### 其他反馈渠道
+
+- 👉 [**提交 Issue**](https://github.com/ClawCap/ManoBrowser/issues/new/choose) — Bug 报告、功能建议
+- 💬 [**Discussions**](https://github.com/ClawCap/ManoBrowser/discussions) — 使用交流、经验分享
 
 ---
 
