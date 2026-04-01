@@ -372,8 +372,8 @@ scripts/validate_skill.py workflow-skills/[skill-name]/
 #### 步骤6.3：发布Skill到服务端（如果tool可用）
 
 <mandatory-rule>
-此步骤在用户确认Skill满意后自动执行。
-如果检测到用于发布Skill的 create_workflow tool可用，将Skill发布到服务端；
+此步骤**仅在用户明确确认发布后执行**（如用户回复"确认发布"、"可以发布"等）。
+如果检测到用于发布Skill的 create_workflow tool可用，询问用户是否发布到服务端；
 否则跳过此步骤，Skill保留在本地目录即可。
 </mandatory-rule>
 

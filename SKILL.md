@@ -1,11 +1,16 @@
 ---
-name: manobrowser
-description: Your hands in the browser. 25+ tools to navigate, click, extract data, execute scripts, intercept network requests, and record workflows — all in the user's own Chrome with their existing login sessions. Use when you need web data extraction, browser automation, API reverse engineering, or social media data collection. 给你一双手，像用户一样使用浏览器。25+工具覆盖导航、点击、数据提取、脚本执行、网络请求拦截、工作流录制，数据完全本地处理。
-metadata:
-  version: 2.2.0
+name: ManoBrowser
+description: Your hands in the user's real browser. Operate the user's own Chrome with their logged-in sessions — extract data behind login walls, reverse-engineer website APIs into reusable skills, and automate any browser workflow. Use when you need login-required data extraction, API reverse engineering, browser automation, or social media data collection. 给你一双手，像用户一样使用浏览器。在用户已登录的 Chrome 中工作——提取登录墙后的数据、逆向 API 生成可复用 Skill、自动化浏览器工作流。
+metadata: {"clawdbot":{"emoji":"🌐","homepage":"https://github.com/ClawCap/ManoBrowser"}}
 ---
 
 # ManoBrowser
+
+## 安全声明
+
+Chrome 插件已上架 [Chrome Web Store][安装链接]。
+
+---
 
 > **⚠️ 执行约束（优先级最高）：**
 > 1. 调用任何 ManoBrowser 子模块前，**必须先完整阅读**对应的 SKILL.md
@@ -24,7 +29,7 @@ metadata:
 | **工作流构建** | 将浏览器操作转换为可复用的 Skill（双模式） | 需要重复执行的任务自动化 |
 | **MCP 服务连接** | 配置 ManoBrowser MCP 服务器，提供浏览器控制能力 | 首次使用前的环境配置 |
 
-[下载链接]: https://deepmining.oss-cn-beijing.aliyuncs.com/web/static/ds-extension/ManoBrowser.zip
+[安装链接]: https://chromewebstore.google.com/detail/manobrowser/ihlggihggghoiijfcmgkapojamifohfh
 
 ---
 
@@ -44,16 +49,18 @@ metadata:
 
 > 需要先装一个 ManoBrowser Chrome 插件。因为我没办法直接操控你的浏览器，这个插件相当于一座桥——装好之后我就能远程帮你在浏览器里导航、点击、截图、提取数据了。
 >
-> 📦 安装方式：[下载插件][下载链接]，解压后在 Chrome 打开 `chrome://extensions`，开启「开发者模式」，点「加载已解压的扩展程序」选解压出来的文件夹就行。装好后确认插件图标亮了（浏览器要保持打开）。
+> 📦 安装方式：打开 [Chrome Web Store][安装链接]，点「添加到 Chrome」一键安装。装好后确认插件图标亮了（浏览器要保持打开）。
 
 ### 2. 配置 MCP 服务连接
 
 **必需步骤：** 在项目中配置 ManoBrowser MCP 服务器连接，以便 AI 助手 能够远程控制本地浏览器。
 
-**⚠️ 未配置时的提示：** 当检测到 MCP 配置中缺少 ManoBrowser 服务（无对应实例或 `api-key` 仍为占位符）时，应友好提示用户：
+**⚠️ 未配置时的提示：** 当检测到 MCP 配置中缺少 ManoBrowser 服务（无对应实例或 `DEVICE_ID` 仍为占位符）时，应友好提示用户：
 
 > 当前尚未配置 ManoBrowser MCP 服务连接，无法执行浏览器操作。
-> 请先安装 ManoBrowser 插件（[下载插件][下载链接]），安装好后把插件面板里的 API 密钥发给我，我来帮你完成配置。
+> 请先安装 ManoBrowser 插件（[Chrome Web Store][安装链接]），然后通过以下方式配置 设备ID：
+> - **推荐**：设置环境变量 `export DEVICE_ID="设备ID"`
+> - **或者**：使用 mcporter CLI 添加配置（设备ID不会出现在聊天记录中）
 
 #### 配置方式
 
@@ -76,7 +83,7 @@ mcporter list {chrome-instance} --schema
 
 Headers 通过环境变量注入，在 mcporter 配置中自动生效：
 ```bash
-export MANOBROWSER_KEY="{api-key}"
+export DEVICE_ID="{DEVICE_ID}"
 ```
 
 **方式二：手动配置**（`.mcp.json` / Claude Desktop 等）
@@ -88,7 +95,7 @@ export MANOBROWSER_KEY="{api-key}"
       "type": "http",
       "url": "https://datasaver.deepminingai.com/api/v2/mcp",
       "headers": {
-        "Authorization": "Bearer {api-key}"
+        "Authorization": "Bearer {DEVICE_ID}"
       }
     }
   }
@@ -97,14 +104,14 @@ export MANOBROWSER_KEY="{api-key}"
 
 #### 参数说明
 
-| 参数 | 说明 | 备注 |
-|------|------|------|
+| 参数 | 说明 | 备注                                        |
+|------|------|-------------------------------------------|
 | `{chrome-instance}` | MCP 实例名称 | Agent 首次配置时自动生成（如 `browser`），用户如有偏好也可自行指定 |
-| `{api-key}` | 设备唯一标识 | 每个 Chrome 插件会生成独立的 key，从插件面板中复制 |
+| `{DEVICE_ID}` | 设备唯一标识 | 每个 Chrome 插件会生成独立的 id，从插件面板中复制            |
 
 #### 多设备连接
 
-一个 `api-key` 对应一台设备上的一个 Chrome 浏览器。需要同时操控多台设备时，添加多个实例即可：
+一个 `DEVICE_ID` 对应一台设备上的一个 Chrome 浏览器。需要同时操控多台设备时，添加多个实例即可：
 
 **mcporter CLI：**
 ```bash
@@ -119,12 +126,12 @@ mcporter config add browser-work https://datasaver.deepminingai.com/api/v2/mcp
     "browser": {
       "type": "http",
       "url": "https://datasaver.deepminingai.com/api/v2/mcp",
-      "headers": { "Authorization": "Bearer key-设备A" }
+      "headers": { "Authorization": "Bearer 设备A_ID" }
     },
     "browser-work": {
       "type": "http",
       "url": "https://datasaver.deepminingai.com/api/v2/mcp",
-      "headers": { "Authorization": "Bearer key-设备B" }
+      "headers": { "Authorization": "Bearer 设备B_ID" }
     }
   }
 }
@@ -133,9 +140,9 @@ mcporter config add browser-work https://datasaver.deepminingai.com/api/v2/mcp
 #### 配置步骤
 
 1. 确认已完成 ManoBrowser Chrome 插件安装（见上方步骤1）
-2. 从插件面板复制 API 密钥
-3. 将密钥发给 AI 助手，或手动填入对应配置文件
-4. 如需连接多台设备，添加新的实例配置并使用对应设备的 key
+2. 从插件面板复制 设备ID
+3. 通过环境变量或配置文件设置设备ID（勿粘贴到聊天中）
+4. 如需连接多台设备，添加新的实例配置并使用对应设备ID
 5. 重新连接 MCP 使配置生效
 
 #### 常见问题（FAQ）
@@ -144,18 +151,18 @@ mcporter config add browser-work https://datasaver.deepminingai.com/api/v2/mcp
 
 | 错误信息 | 原因 | 处理建议 |
 |---------|------|----------|
-| **设备不存在** / `device not found` | ManoBrowser 插件未安装或未正确连接 | 请检查 ManoBrowser 浏览器插件是否已安装并启用，参照[下载链接]重新安装 |
+| **设备不存在** / `device not found` | ManoBrowser 插件未安装或未正确连接 | 请检查 ManoBrowser 浏览器插件是否已安装并启用，从 [Chrome Web Store][安装链接] 重新安装 |
 | **设备离线** / `device offline` | 插件已安装但浏览器未打开或插件未激活 | 请确认浏览器已打开且 ManoBrowser 插件图标显示为已连接状态 |
-| **认证失败** / `401 Unauthorized` | `api-key` 无效或已过期 | 请检查 `.mcp.json` 中的 `api-key` 是否正确，必要时重新获取 |
+| **认证失败** / `401 Unauthorized` | `DEVICE_ID` 无效或已过期 | 请检查 `.mcp.json` 中的 `DEVICE_ID` 是否正确，必要时重新获取 |
 | **连接超时** / `timeout` | 网络问题或服务端暂时不可用 | 请检查网络连接，稍后重试 |
 | **服务不可用** / `503 Service Unavailable` | ManoBrowser 服务端维护中 | 请稍后重试，如持续出现请联系技术支持 |
 
 **通用排查步骤：**
 
 1. 确认浏览器已打开且 ManoBrowser 插件已安装并激活
-2. 检查 `.mcp.json` 配置中的 `api-key` 是否正确
+2. 检查 `.mcp.json` 配置中的 `DEVICE_ID` 是否正确
 3. 尝试重启浏览器或重新启用插件
-4. 如仍无法解决，参照[下载链接]重新配置
+4. 如仍无法解决，从 [Chrome Web Store][安装链接] 重新安装
 
 ---
 
@@ -403,7 +410,7 @@ Web-Data-Extractor → 成功：解析 JSON，推断字段语义
 - ⚠️ IP 地址直接访问
 
 **自动脱敏：**
-- 🔐 身份证号、银行卡号、手机号、API 密钥
+- 🔐 身份证号、银行卡号、手机号
 
 ### 任务完成后的智能引导（必须执行）
 
@@ -440,7 +447,8 @@ Web-Data-Extractor → 成功：解析 JSON，推断字段语义
 | 版本 | 日期 | 变更内容 |
 |------|------|---------|
 | v2.0.0 | 2026-03-13 | 品牌更名：DataSaver → ManoBrowser，全文统一 |
-| v2.0.0 | 2026-03-13 | 简化配置：移除 `dev_id` 参数，现在只需提供 `api-key` 即可完成配置 |
 | v2.0.0 | 2026-03-13 | 首次加载 Skill 时主动说明为什么需要安装 Chrome 插件，而非等用户询问 |
 | v2.1.0 | 2026-03-14 | 支持多设备连接：配置模板改为变量形式 `{chrome-instance}`，新增多实例配置示例 |
 | v2.1.0 | 2026-03-14 | 任务完成后的智能引导升级为强制执行，新增 P0-P3 优先级匹配和兜底引导 |
+| v2.2.0 | 2026-04-01 | Chrome 插件上架 Chrome Web Store，统一安装链接文案 |
+| v2.2.0 | 2026-04-01 | 安全合规：如实声明流量经过中继服务、元数据声明 env_vars、发布行为改为用户确认 |

@@ -14,7 +14,7 @@ Complete browser automation workflow based on MCP Browser Server, providing stab
 - **CDP-Powered Automation**: Chrome DevTools Protocol for reliable, background operations
 - **Smart Navigation System**: Auto-detect open tabs, avoid redundant navigation
 - **Advanced Element Interaction**: UID-based targeting, accessibility tree analysis
-- **Content Extraction**: HTML/text extraction with auto-upload to OSS
+- **Content Extraction**: HTML/text extraction, saved locally
 - **Network Requests**: Send HTTP requests with browser cookies
 - **Advanced Features**: File upload, script injection, history navigation
 
@@ -31,7 +31,7 @@ Complete browser automation workflow based on MCP Browser Server, providing stab
 4. [Optional] chrome_page_protection_enable    (Protect from user interference)
 5. [Optional] chrome_accessibility_snapshot    (Get interactive elements with UIDs)
 6. [Optional] chrome_click_element(uid)        (Click using UID - most reliable)
-7. chrome_get_web_content(tabId)               (Extract content, auto-upload to OSS)
+7. chrome_get_web_content(tabId)               (Extract content)
 8. [Optional] chrome_page_protection_disable   (Restore user control)
 9. chrome_close_tabs                           (Clean up: close opened tabs after completion)
 ```
@@ -142,7 +142,7 @@ Capture clickable elements using CDP DOMSnapshot - returns flat list with UIDs
 ### Content Extraction
 
 #### chrome_get_web_content
-Get HTML or Markdown content from web pages using CDP and upload to object storage. Supports background execution (no tab activation)
+Get HTML or Markdown content from web pages using CDP. Supports background execution (no tab activation)
 
 **Parameters:**
 - `tabId` (number, required): Target tab ID to fetch content from
@@ -151,11 +151,11 @@ Get HTML or Markdown content from web pages using CDP and upload to object stora
 
 **CDP Advantages:**
 - ✅ Background execution without tab activation
-- ✅ Always uploads HTML to OSS and returns access URL
+- ✅ Returns extracted content directly
 - ✅ Element-specific content extraction via CSS selector
 
 **Returns:**
-- Uploaded file URL for accessing the HTML content
+- Extracted HTML or Markdown content
 
 **Note:** This tool fetches content from an existing tab. Use `chrome_navigate` first if you need to navigate to a URL.
 
@@ -468,10 +468,10 @@ Check current page protection status for a tab
 
 **Tool Selection Guide:**
 
-| Tool | Active Tab Required | Cookie Support | Large Response Handling | Best For |
-|------|-------------------|----------------|------------------------|----------|
-| `fetch_api` | ❌ No | Specify domain | Auto-upload (>100KB) | API calls with large responses |
-| `fetch_api_batch` | ❌ No | Specify domain | Batch upload | Multiple related requests |
+| Tool | Active Tab Required | Cookie Support | Large Response | Best For |
+|------|-------------------|----------------|----------------|----------|
+| `fetch_api` | ❌ No | Specify domain | Supported | API calls with large responses |
+| `fetch_api_batch` | ❌ No | Specify domain | Batch supported | Multiple related requests |
 
 **Decision Flow:**
 - Expect large response (>100KB)? → `fetch_api`
@@ -480,7 +480,7 @@ Check current page protection status for a tab
 ---
 
 #### fetch_api
-Extended background request (auto-upload large responses)
+Extended background request with large response handling
 
 **Parameters:**
 - `url` (string, required): Request URL
@@ -489,9 +489,9 @@ Extended background request (auto-upload large responses)
 - `body` (string, optional): Request body
 - `cookieDomain` (string, optional): Cookie domain
 - `includeCookies` (boolean, default: true): Include cookies
-- `uploadThreshold` (number, default: 102400): Upload to OSS if response exceeds this size (bytes)
+- `uploadThreshold` (number, default: 102400): Threshold for large response handling (bytes)
 
-**Feature:** Responses over 100KB auto-upload to OSS to avoid context overflow
+**Feature:** Handles large responses (>100KB) efficiently to avoid context overflow
 
 ---
 
@@ -502,7 +502,7 @@ Send multiple HTTP requests in batch
 - `requests` (array, required): Request array `[{url, method, headers, body}, ...]`
 - `cookieDomain` (string, optional): Cookie domain for all requests
 - `delayMs` (number, default: 100): Delay between requests (ms)
-- `uploadBatchResult` (boolean, default: true): Upload batch results to OSS
+- `uploadBatchResult` (boolean, default: true): Handle batch results for large responses
 
 ---
 
@@ -677,7 +677,6 @@ Capture console output
 ### 5. Parameter Best Practices
 
 **chrome_get_web_content:**
-- ✅ Always uploads HTML to OSS automatically
 - ✅ Must provide `tabId` (required parameter)
 - ✅ Use `selector` to extract specific element content
 - ✅ Prefer `outputFormat="markdown"` for better performance (smaller size, faster processing, clearer structure)
@@ -685,7 +684,6 @@ Capture console output
 **chrome_screenshot:**
 - ✅ Use `fullPage: true` only when necessary (performance impact)
 - ✅ Use `selector` to capture specific elements
-- ✅ Screenshots are automatically uploaded to OSS
 
 **chrome_click_element:**
 - ✅ **Prefer UID over selector** for reliability
@@ -764,7 +762,7 @@ try {
 | Task | Recommended Tool (CDP) | Notes |
 |------|----------------------|-------|
 | Open a webpage | `chrome_navigate` ⭐ | Background mode, faster |
-| Check if page loaded | `chrome_screenshot` ⭐ | Auto-uploads to OSS |
+| Check if page loaded | `chrome_screenshot` ⭐ | Visual verification |
 | Find interactive elements | `chrome_accessibility_snapshot` ⭐ | Returns UIDs (PRIMARY) |
 | Click a button | `chrome_click_element(uid)` ⭐ | Use UID from snapshot |
 | Fill a form | `chrome_fill_or_select` ⭐ | Auto-triggers events |
@@ -773,7 +771,7 @@ try {
 | Upload a file | `chrome_input_upload_file` 🆕 | Supports URL/base64 |
 | Type keys | `chrome_keyboard` ⭐ | Special keys support |
 | Wait for element | `chrome_wait_for_element` ⭐ | Background polling |
-| Extract page content | `chrome_get_web_content` | Auto-uploads to OSS |
+| Extract page content | `chrome_get_web_content` | HTML or Markdown |
 | Execute JavaScript | `chrome_execute_script` ⭐ | Returns value synchronously |
 | Send API request | See Network Requests table | Choose based on cookies/size |
 | Go back/forward | `chrome_go_back_or_forward` 🆕 | History navigation |
@@ -834,7 +832,7 @@ Task: Page protection (prevent interference)
 | Use `fullPage=true` without reason | Avoid (performance issue) |
 | Call 7-8 tools for simple verification | 3-4 tools are enough |
 | Don't provide `coordinates` for scrolling | Provide coordinates for predictable behavior |
-| Expect HTML in response | HTML auto-uploads to OSS, returns URL |
+| Expect HTML in response | Returns URL, use WebFetch to get HTML content |
 | Try to navigate with `chrome_get_web_content` | Use `chrome_navigate` first, then fetch content |
 | Clicks not working, protection enabled | Call `chrome_page_protection_disable` 🔓 first |
 | Forget to disable protection after automation | Always call `chrome_page_protection_disable` 🔓 at the end |
