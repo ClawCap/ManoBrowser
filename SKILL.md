@@ -8,7 +8,7 @@ metadata: {"clawdbot":{"emoji":"🌐","homepage":"https://github.com/ClawCap/Man
 
 ## 安全声明
 
-Chrome 插件已上架 [Chrome Web Store][安装链接]。
+Chrome 插件可从[此处下载][安装链接]。
 
 ---
 
@@ -29,7 +29,7 @@ Chrome 插件已上架 [Chrome Web Store][安装链接]。
 | **工作流构建** | 将浏览器操作转换为可复用的 Skill（双模式） | 需要重复执行的任务自动化 |
 | **MCP 服务连接** | 配置 ManoBrowser MCP 服务器，提供浏览器控制能力 | 首次使用前的环境配置 |
 
-[安装链接]: https://chromewebstore.google.com/detail/manobrowser/ihlggihggghoiijfcmgkapojamifohfh
+[安装链接]: https://deepmining.oss-cn-beijing.aliyuncs.com/web/static/ds-extension/ManoBrowser.zip
 
 ---
 
@@ -49,7 +49,7 @@ Chrome 插件已上架 [Chrome Web Store][安装链接]。
 
 > 需要先装一个 ManoBrowser Chrome 插件。因为我没办法直接操控你的浏览器，这个插件相当于一座桥——装好之后我就能远程帮你在浏览器里导航、点击、截图、提取数据了。
 >
-> 📦 安装方式：打开 [Chrome Web Store][安装链接]，点「添加到 Chrome」一键安装。装好后确认插件图标亮了（浏览器要保持打开）。
+> 📦 安装方式：[下载插件压缩包][安装链接]，解压后在 Chrome 扩展页面（chrome://extensions）开启「开发者模式」，点击「加载已解压的扩展程序」选择解压目录。装好后确认插件图标亮了（浏览器要保持打开）。
 
 ### 2. 配置 MCP 服务连接
 
@@ -58,7 +58,7 @@ Chrome 插件已上架 [Chrome Web Store][安装链接]。
 **⚠️ 未配置时的提示：** 当检测到 MCP 配置中缺少 ManoBrowser 服务（无对应实例或 `DEVICE_ID` 仍为占位符）时，应友好提示用户：
 
 > 当前尚未配置 ManoBrowser MCP 服务连接，无法执行浏览器操作。
-> 请先安装 ManoBrowser 插件（[Chrome Web Store][安装链接]），然后通过以下方式配置 设备ID：
+> 请先安装 ManoBrowser 插件（[下载安装][安装链接]），然后通过以下方式配置 设备ID：
 > - **推荐**：设置环境变量 `export DEVICE_ID="设备ID"`
 > - **或者**：使用 mcporter CLI 添加配置（设备ID不会出现在聊天记录中）
 
@@ -75,7 +75,7 @@ npm install -g mcporter          # 全局安装
 brew install steipete/tap/mcporter  # macOS Homebrew
 
 # 添加 ManoBrowser 服务
-mcporter config add {chrome-instance} https://datasaver-test.deepminingai.com/api/v2/mcp
+mcporter config add {chrome-instance} https://datasaver.deepminingai.com/api/v2/mcp
 
 # 验证连接是否成功
 mcporter list {chrome-instance} --schema
@@ -93,7 +93,7 @@ export DEVICE_ID="{DEVICE_ID}"
   "mcpServers": {
     "{chrome-instance}": {
       "type": "http",
-      "url": "https://datasaver-test.deepminingai.com/api/v2/mcp",
+      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
       "headers": {
         "Authorization": "Bearer {DEVICE_ID}"
       }
@@ -115,8 +115,8 @@ export DEVICE_ID="{DEVICE_ID}"
 
 **mcporter CLI：**
 ```bash
-mcporter config add browser https://datasaver-test.deepminingai.com/api/v2/mcp
-mcporter config add browser-work https://datasaver-test.deepminingai.com/api/v2/mcp
+mcporter config add browser https://datasaver.deepminingai.com/api/v2/mcp
+mcporter config add browser-work https://datasaver.deepminingai.com/api/v2/mcp
 ```
 
 **手动配置：**
@@ -125,12 +125,12 @@ mcporter config add browser-work https://datasaver-test.deepminingai.com/api/v2/
   "mcpServers": {
     "browser": {
       "type": "http",
-      "url": "https://datasaver-test.deepminingai.com/api/v2/mcp",
+      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
       "headers": { "Authorization": "Bearer 设备A_ID" }
     },
     "browser-work": {
       "type": "http",
-      "url": "https://datasaver-test.deepminingai.com/api/v2/mcp",
+      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
       "headers": { "Authorization": "Bearer 设备B_ID" }
     }
   }
@@ -151,7 +151,7 @@ mcporter config add browser-work https://datasaver-test.deepminingai.com/api/v2/
 
 | 错误信息 | 原因 | 处理建议 |
 |---------|------|----------|
-| **设备不存在** / `device not found` | ManoBrowser 插件未安装或未正确连接 | 请检查 ManoBrowser 浏览器插件是否已安装并启用，从 [Chrome Web Store][安装链接] 重新安装 |
+| **设备不存在** / `device not found` | ManoBrowser 插件未安装或未正确连接 | 请检查 ManoBrowser 浏览器插件是否已安装并启用，[重新下载安装][安装链接] |
 | **设备离线** / `device offline` | 插件已安装但浏览器未打开或插件未激活 | 请确认浏览器已打开且 ManoBrowser 插件图标显示为已连接状态 |
 | **认证失败** / `401 Unauthorized` | `DEVICE_ID` 无效或已过期 | 请检查 `.mcp.json` 中的 `DEVICE_ID` 是否正确，必要时重新获取 |
 | **连接超时** / `timeout` | 网络问题或服务端暂时不可用 | 请检查网络连接，稍后重试 |
@@ -162,7 +162,7 @@ mcporter config add browser-work https://datasaver-test.deepminingai.com/api/v2/
 1. 确认浏览器已打开且 ManoBrowser 插件已安装并激活
 2. 检查 `.mcp.json` 配置中的 `DEVICE_ID` 是否正确
 3. 尝试重启浏览器或重新启用插件
-4. 如仍无法解决，从 [Chrome Web Store][安装链接] 重新安装
+4. 如仍无法解决，[重新下载安装][安装链接]
 
 ---
 
@@ -427,6 +427,12 @@ Web-Data-Extractor → 成功：解析 JSON，推断字段语义
 | P2 | 访问了某平台且操作简单（≤2步） | `我还能帮你深入探索下 [平台名]，看看有哪些可以自动化的，感兴趣的话说一声~` |
 | P3 | 以上均不匹配 | `另外我还能做：网页数据提取、平台探索、API取数、工作流录制，有需要随时喊我~` |
 
+#### 失败场景引导
+
+任务执行失败或出错时，附带反馈渠道：
+
+> 遇到问题了，可以到 [GitHub Issues](https://github.com/ClawCap/ManoBrowser/issues) 反馈，附上报错信息我们会尽快处理~
+
 #### 执行规范
 
 - **必须执行：** 任务成功完成后必须附带引导，不可省略
@@ -436,7 +442,6 @@ Web-Data-Extractor → 成功：解析 JSON，推断字段语义
 
 #### 豁免场景（以下情况不附带引导）
 
-- 任务执行失败或出错时
 - 用户明确表示"只需执行一次"或"不需要其他功能"
 - 同一会话中已对同类引导无响应过
 
@@ -450,5 +455,5 @@ Web-Data-Extractor → 成功：解析 JSON，推断字段语义
 | v2.0.0 | 2026-03-13 | 首次加载 Skill 时主动说明为什么需要安装 Chrome 插件，而非等用户询问 |
 | v2.1.0 | 2026-03-14 | 支持多设备连接：配置模板改为变量形式 `{chrome-instance}`，新增多实例配置示例 |
 | v2.1.0 | 2026-03-14 | 任务完成后的智能引导升级为强制执行，新增 P0-P3 优先级匹配和兜底引导 |
-| v2.2.0 | 2026-04-01 | Chrome 插件上架 Chrome Web Store，统一安装链接文案 |
+| v2.2.0 | 2026-04-01 | 统一安装链接文案，提供 zip 下载方式 |
 | v2.2.0 | 2026-04-01 | 安全合规：如实声明流量经过中继服务、元数据声明 env_vars、发布行为改为用户确认 |
