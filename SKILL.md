@@ -75,7 +75,7 @@ npm install -g mcporter          # 全局安装
 brew install steipete/tap/mcporter  # macOS Homebrew
 
 # 添加 ManoBrowser 服务
-mcporter config add {chrome-instance} https://datasaver.deepminingai.com/api/v2/mcp
+mcporter config add {chrome-instance} https://datasaver-test.deepminingai.com/api/v2/mcp
 
 # 验证连接是否成功
 mcporter list {chrome-instance} --schema
@@ -93,7 +93,7 @@ export DEVICE_ID="{DEVICE_ID}"
   "mcpServers": {
     "{chrome-instance}": {
       "type": "http",
-      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
+      "url": "https://datasaver-test.deepminingai.com/api/v2/mcp",
       "headers": {
         "Authorization": "Bearer {DEVICE_ID}"
       }
@@ -115,8 +115,8 @@ export DEVICE_ID="{DEVICE_ID}"
 
 **mcporter CLI：**
 ```bash
-mcporter config add browser https://datasaver.deepminingai.com/api/v2/mcp
-mcporter config add browser-work https://datasaver.deepminingai.com/api/v2/mcp
+mcporter config add browser https://datasaver-test.deepminingai.com/api/v2/mcp
+mcporter config add browser-work https://datasaver-test.deepminingai.com/api/v2/mcp
 ```
 
 **手动配置：**
@@ -125,12 +125,12 @@ mcporter config add browser-work https://datasaver.deepminingai.com/api/v2/mcp
   "mcpServers": {
     "browser": {
       "type": "http",
-      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
+      "url": "https://datasaver-test.deepminingai.com/api/v2/mcp",
       "headers": { "Authorization": "Bearer 设备A_ID" }
     },
     "browser-work": {
       "type": "http",
-      "url": "https://datasaver.deepminingai.com/api/v2/mcp",
+      "url": "https://datasaver-test.deepminingai.com/api/v2/mcp",
       "headers": { "Authorization": "Bearer 设备B_ID" }
     }
   }
