@@ -158,15 +158,23 @@ ManoBrowser/
 
 ---
 
-## 💬 反馈与社区
+## 👋 加入我们的社区
+## 👋 Join Our Community
 
-### 加入 ClawCap 开源社区
+我们是一群用 AI 玩转社交数据的开发者和创作者。ClawCap 的所有项目完全开源，欢迎反馈问题、分享你的使用体验、提出新想法。
 
-扫码加入飞书群，和开发者直接交流、反馈问题、获取最新动态：
+We are a group of developers and creators building open-source AI tools for social data. All ClawCap projects are fully open-source. Feedback, bug reports, and new ideas are always welcome.
+
+| | |
+|---|---|
+| [![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/5EY7nevN5z) | 加入我们的 Discord 社区！和开发者及其他用户交流，获取最新动态。<br/>Join our Discord community! Connect with developers and other users. |
+
+<details>
+<summary>📱 飞书群 / Feishu Group</summary>
 
 <img src="docs/img/feishu_qr.png" alt="ClawCap 开源社区飞书群" width="250" />
 
-### 其他反馈渠道
+</details>
 
 - 👉 [**提交 Issue**](https://github.com/ClawCap/ManoBrowser/issues/new/choose) — Bug 报告、功能建议
 - 💬 [**Discussions**](https://github.com/ClawCap/ManoBrowser/discussions) — 使用交流、经验分享
