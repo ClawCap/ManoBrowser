@@ -158,14 +158,13 @@ ManoBrowser/
 
 ---
 
-## 👋 加入社区
+## 👋 加入我们的社区
 
-无论你是开发者还是普通用户，欢迎来玩！这里可以交流使用心得、反馈问题、提出新想法，或者纯粹围观别人的报告 😂
+无论你是开发者还是普通用户，欢迎来玩！这里可以交流使用心得、反馈问题、提出新想法，或者纯粹围观别人的报告！
 
 | | |
-|---|---|
-| [![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/5EY7nevN5z) | 加入 Discord 社区，和开发者、用户一起聊 |
-| [![Feishu](https://img.shields.io/badge/飞书群-加入-00D09C?logo=bytedance&logoColor=white)](docs/img/feishu_qr.png) | 扫码加入飞书群 |
+| [![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/5EY7nevN5z) | 加入我们的 Discord 社区！这里你可以与开发者及其他热情的用户交流。 |
+| [![Feishu](https://img.shields.io/badge/飞书群-加入-00D09C?logo=bytedance&logoColor=white)](docs/img/feishu_qr.png) | 扫描二维码加入我们的ClawCap开源社区飞书群！ |
 
 - 👉 [**提交 Issue**](https://github.com/ClawCap/ManoBrowser/issues/new/choose) — Bug 报告 / 功能建议
 - 💬 [**Discussions**](https://github.com/ClawCap/ManoBrowser/discussions) — 使用交流 / 分享体验
