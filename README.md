@@ -158,27 +158,15 @@ ManoBrowser/
 
 ---
 
-## 👋 加入我们的社区
-## 👋 Join Our Community
-
-我们是一群用 AI 玩转社交数据的开发者和创作者。ClawCap 的所有项目完全开源，欢迎反馈问题、分享你的使用体验、提出新想法。
-
-We are a group of developers and creators building open-source AI tools for social data. All ClawCap projects are fully open-source. Feedback, bug reports, and new ideas are always welcome.
+## 👋 加入社区
 
 | | |
 |---|---|
-| [![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/5EY7nevN5z) | 加入我们的 Discord 社区！和开发者及其他用户交流，获取最新动态。<br/>Join our Discord community! Connect with developers and other users. |
+| [![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/5EY7nevN5z) | 加入 Discord 社区，和开发者及其他用户交流、获取最新动态 |
+| [![Feishu](https://img.shields.io/badge/飞书群-加入-00D09C?logo=bytedance&logoColor=white)](docs/img/feishu_qr.png) | 扫码加入飞书群（[点击查看二维码](docs/img/feishu_qr.png)） |
 
-<details>
-<summary>📱 飞书群 / Feishu Group</summary>
-
-<img src="docs/img/feishu_qr.png" alt="ClawCap 开源社区飞书群" width="250" />
-
-</details>
-
-- 👉 [**提交 Issue**](https://github.com/ClawCap/ManoBrowser/issues/new/choose) — Bug 报告、功能建议
-- 💬 [**Discussions**](https://github.com/ClawCap/ManoBrowser/discussions) — 使用交流、经验分享
-
+- 👉 [**提交 Issue**](https://github.com/ClawCap/ManoBrowser/issues/new/choose) — Bug 报告 / 功能建议
+- 💬 [**Discussions**](https://github.com/ClawCap/ManoBrowser/discussions) — 使用交流 / 分享体验
 ---
 
 **⭐ 如果 ManoBrowser 帮到了你（或你的用户），给个 Star 支持一下！**
