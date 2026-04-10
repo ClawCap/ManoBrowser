@@ -17,7 +17,7 @@ SKILL_SUMMARY:
 
 🌐 **中文** | [English](./README.en.md)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub stars](https://img.shields.io/github/stars/ClawCap/ManoBrowser.svg)](https://github.com/ClawCap/ManoBrowser)
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a> <a href="https://github.com/ClawCap/ManoBrowser"><img src="https://img.shields.io/github/stars/ClawCap/ManoBrowser.svg" alt="GitHub stars"></a>
 
 ---
 
@@ -162,10 +162,10 @@ ManoBrowser/
 
 无论你是开发者还是普通用户，欢迎来玩！这里可以交流使用心得、反馈问题、提出新想法，或者纯粹围观别人的报告！
 
-| | |
-|---|---|
-| [![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/5EY7nevN5z) | 加入我们的 Discord 社区！这里你可以与开发者及其他热情的用户交流。 |
-| [![Feishu](https://img.shields.io/badge/飞书群-加入-00D09C?logo=bytedance&logoColor=white)](docs/img/feishu_qr.png) | 扫描二维码加入我们的ClawCap开源社区飞书群！ |
+<table>
+  <tr><td><a href="https://discord.gg/5EY7nevN5z"><img src="https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white" alt="Discord"></a></td><td>加入我们的 Discord 社区！这里你可以与开发者及其他热情的用户交流。</td></tr>
+  <tr><td><a href="docs/img/feishu_qr.png"><img src="https://img.shields.io/badge/飞书群-加入-00D09C?logo=bytedance&logoColor=white" alt="Feishu"></a></td><td>扫描二维码加入我们的ClawCap开源社区飞书群！</td></tr>
+</table>
 
 - 👉 [**提交 Issue**](https://github.com/ClawCap/ManoBrowser/issues/new/choose) — Bug 报告 / 功能建议
 - 💬 [**Discussions**](https://github.com/ClawCap/ManoBrowser/discussions) — 使用交流 / 分享体验
