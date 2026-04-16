@@ -29,7 +29,7 @@ Chrome 插件可从[此处下载][安装链接]。
 | **工作流构建** | 将浏览器操作转换为可复用的 Skill（双模式） | 需要重复执行的任务自动化 |
 | **MCP 服务连接** | 配置 ManoBrowser MCP 服务器，提供浏览器控制能力 | 首次使用前的环境配置 |
 
-[安装链接]: https://deepmining.oss-cn-beijing.aliyuncs.com/web/static/ds-extension/ManoBrowser.zip
+[安装链接]: https://chromewebstore.google.com/detail/manobrowser/ihlggihggghoiijfcmgkapojamifohfh
 
 ---
 
@@ -49,7 +49,7 @@ Chrome 插件可从[此处下载][安装链接]。
 
 > 需要先装一个 ManoBrowser Chrome 插件。因为我没办法直接操控你的浏览器，这个插件相当于一座桥——装好之后我就能远程帮你在浏览器里导航、点击、截图、提取数据了。
 >
-> 📦 安装方式：[下载插件压缩包][安装链接]，解压后在 Chrome 扩展页面（chrome://extensions）开启「开发者模式」，点击「加载已解压的扩展程序」选择解压目录。装好后确认插件图标亮了（浏览器要保持打开）。
+> 📦 安装方式：打开 [Chrome 应用商店 ManoBrowser 页面][安装链接]，点击「添加至 Chrome」完成安装。装好后确认插件图标亮了（浏览器要保持打开）。
 
 ### 2. 配置 MCP 服务连接
 
